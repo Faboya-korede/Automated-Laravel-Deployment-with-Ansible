@@ -15,7 +15,7 @@
 
   - name: Check if certificate already exists.
     stat:
-      path: /etc/letsencrypt/live/www.korede.me/cert.pem
+      path: /etc/letsencrypt/live/"your-domain"/cert.pem
     register: letsencrypt_cert
     with_items: /etc/apache2/sites-available/laravel-realworld-example-app.conf
 
@@ -26,7 +26,7 @@
        state: stopped
 
   - name: Generate new certificate if one doesn't exist.
-    shell: "certbot certonly --standalone --noninteractive --agree-tos --email faboyakorede@gmail.com -d www.korede.me"
+    shell: "certbot certonly --standalone --noninteractive --agree-tos --email your-email-d your-domain"
     with_items: "{{ letsencrypt_cert.results }}"
     when: item.stat.exists == False
 
