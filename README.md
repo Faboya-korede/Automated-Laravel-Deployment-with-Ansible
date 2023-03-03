@@ -18,7 +18,7 @@ Before you begin, you will need:
 
 ## Usage
 
-1. Clone this "https://github.com/f1amy/laravel-realworld-example-app"repository to your local machine.
+1. Clone this repository to your local machine.
 2. Modify the `group_vars/all` file to match your AWS configuration and Laravel application settings.
 3. Modify the `hosts` file to include the IP address or DNS name of your EC2 instance.
 4. Run `ansible-playbook deploy.yml -i hosts` to deploy the Laravel application.
