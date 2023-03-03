@@ -128,6 +128,13 @@
 
   - name: Remove default apache vhost config from sites-enabled
     file: name=/etc/apache2/sites-enabled/000-default.conf state=absent
+    
+  - name: Create non-root user
+    user:
+      name: ansible
+      state: present
+      shell: /bin/bash
+      createhome: yes  
 
   - name: give user "ansible" ownnership to directory
     command:  chown ansible -vR /var/www/html/laravel-realworld-example-app
